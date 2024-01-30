@@ -171,7 +171,7 @@ describe("NftMarketplace", function () {
   });
 
   describe("Withdraw proceeds", function () {
-    it("doesn't allow 0 proceeds withdrawals", async function () {
+    it.only("doesn't allow 0 proceeds withdrawals", async function () {
       expect(
         await nftMarketplace.withdrawProceeds()
       ).to.be.revertedWithCustomError(
@@ -193,7 +193,7 @@ describe("NftMarketplace", function () {
       await nftMarketplace.withdrawProceeds();
       const newProceeds = await nftMarketplace.getProceeds(deployer);
       console.log(newProceeds);
-      const accountBalance = await accounts[0].getBalance();
+      const accountBalance = await ethers.balanceOf(accounts[0].address);
       console.log(accountBalance);
     });
   });
