@@ -1,25 +1,22 @@
 // SPDX-License-Identifier: MIT
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@klaytn/contracts/token/ERC721/ERC721.sol";
 
-// contract address: 0xc28438B5cDc15E11A0aa7202E5EB018dF508f612
+// contract address:
 
 pragma solidity ^0.8.9;
 
-contract BasicNFT is ERC721 {
+contract EduNFT is ERC721 {
     string public constant TOKEN_URI =
         "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
     uint256 private s_tokenCounter;
 
-    event DogMinted(uint256 indexed tokenId);
-
-    constructor() ERC721("Doggie", "DOG") {
+    constructor() ERC721("EduChain", "EDH") {
         s_tokenCounter = 0;
     }
 
     function mintNft() public returns (uint256) {
         _safeMint(msg.sender, s_tokenCounter);
-        emit DogMinted(s_tokenCounter);
         s_tokenCounter += 1;
         return s_tokenCounter;
     }

@@ -9,17 +9,17 @@ module.exports = async function () {
   console.log(chainId);
 
   console.log("Deploying NFT........");
-  const BasicNFT = await deploy("BasicNFT", {
+  const BUNN = await deploy("BUNN", {
     from: deployer,
     args: [],
     log: true,
   });
-  console.log(`Deployed contract at ${BasicNFT.address}`);
+  console.log(`Deployed contract at ${BUNN.address}`);
 
   if (chainId != 31337) {
-    await verify(BasicNFT.address, []);
+    await verify(BUNN.address, []);
     log("verified........");
   }
 };
 
-module.exports.tags = ["all", "basicNFT"];
+module.exports.tags = ["all", "bunn"];

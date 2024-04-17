@@ -6,18 +6,18 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
   const chainId = network.config.chainId;
 
-  const nftMarketplace = await deploy("NftMarketplace", {
+  const EduNft = await deploy("EduNFT", {
     from: deployer,
     log: true,
     args: [],
   });
-  log(`Contract deployed at ${nftMarketplace.address}`);
+  log(`Contract deployed at ${EduNft.address}`);
 
   if (chainId != 31337) {
-    await verify(nftMarketplace.address, []);
+    await verify(EduNft.address, []);
     log("verified........");
   }
   log("------------------------------------");
 };
 
-module.exports.tags = ["all", "nftMarketplace"];
+module.exports.tags = ["all", "EduNft"];
